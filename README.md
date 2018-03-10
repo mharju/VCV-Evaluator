@@ -4,6 +4,8 @@
 Have you always wanted to do live programming on a module? Look no further. This thing can become a logic module, a
 sequencer, an LFO – anything you want! Just jack-in to the nREPL exposed at `localhost:4000` and get cracking.
 
+Currently requires Chicken Scheme and nrepl -library installed via Homebrew. Will fix this at some point. Maybe.
+
 ![Screenshot](evaluator-screenshot.png)
 
 ## Contributing
