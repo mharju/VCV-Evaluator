@@ -27,6 +27,6 @@ RACK_DIR ?= ../..
 # Include the VCV Rack plugin Makefile framework
 include $(RACK_DIR)/plugin.mk
 
-build/engine.scm.o:
+build/engine.scm.o: src/engine.scm
 	csc -C $(MAC_SDK_FLAGS) src/engine.scm -emit-external-prototypes-first -c -o build/engine.scm.o
 
