@@ -1,6 +1,6 @@
 #include "ElasticOrange.hpp"
 
-extern "C" void dsp(float in1, float in2, float in3, float in4, float* out1, float* out2, float *out3, float* out4);
+extern "C" void dsp(float time, float in1, float in2, float in3, float in4, float* out1, float* out2, float *out3, float* out4);
 
 struct Evaluator : Module {
 	enum ParamIds {
@@ -49,8 +49,8 @@ void Evaluator::step() {
         chickenInit = true;
     }
 
-    // float deltaTime = engineGetSampleTime();
-    dsp(inputs[0].value, inputs[1].value, inputs[2].value, inputs[3].value,
+    float deltaTime = engineGetSampleTime();
+    dsp(deltaTime, inputs[0].value, inputs[1].value, inputs[2].value, inputs[3].value,
             &(outputs[0].value), &(outputs[1].value), &(outputs[2].value), &(outputs[3].value));
 
     CHICKEN_yield();
