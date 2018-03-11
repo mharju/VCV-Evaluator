@@ -7,6 +7,7 @@ sequencer, an LFO – anything you want! Just jack-in to the nREPL exposed at `
 Currently requires Chicken Scheme and nrepl -library installed via Homebrew. Will fix this at some point. Maybe.
 
 ![Screenshot](evaluator-screenshot.png)
+![Evaluator in action](evaluator-in-action.png)
 
 ## Contributing
 
