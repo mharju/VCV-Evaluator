@@ -1,4 +1,4 @@
-(declare (uses srfi-18))
+(declare (uses srfi-18 srfi-1))
 (use nrepl lolevel)
 
 (define-external (dsp (float delta-time)
