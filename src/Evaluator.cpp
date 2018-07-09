@@ -1,5 +1,7 @@
 #include "ElasticOrange.hpp"
 
+static bool chickenInit = false;
+
 extern "C" void dsp(float time, float in1, float in2, float in3, float in4, float* out1, float* out2, float *out3, float* out4);
 
 struct Evaluator : Module {
@@ -24,8 +26,6 @@ struct Evaluator : Module {
 		NUM_LIGHTS
 	};
 
-        bool chickenInit = false;
-
 	Evaluator() : Module(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS) {
         }
 	void step() override;
@@ -35,7 +35,6 @@ struct Evaluator : Module {
 	// - onSampleRateChange: event triggered by a change of sample rate
 	// - onReset, onRandomize, onCreate, onDelete: implements special behavior when user clicks these from the context menu
 };
-
 
 void Evaluator::step() {
     // We need to initialize chicken in the thread we are using it in.
