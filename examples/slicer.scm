@@ -56,10 +56,14 @@
   (set! *current-step* (+ (modulo (- (+ *current-step* 1) *start-step*) *loop-length*)
                           *start-step*)))
 
-(define (record!)
+(define (rec!)
   (set! *pulse-count* 0)
   (set! *record-buffer-position* 0)
   (set! *record-mode* #t))
+(define (sp n)
+  (set! *start-step* n))
+(define (ll n)
+  (set! *loop-length* n))
 
 (define (run-dsp delta-t in clock pitch in4 out1 out2 out3 out4)
   (when *record-mode*

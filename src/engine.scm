@@ -6,15 +6,21 @@
                       ((c-pointer float) out1) ((c-pointer float) out2)
                       ((c-pointer float) out3) ((c-pointer float) out4))
   void
-  (run-dsp delta-time in1 in2 in3 in4 out1 out2 out3 out4))
+  (handle-exceptions exn
+    (begin
+      (display "Error in run-dsp processing. Reverting to passthrough.  Fix the error and eval again.\n")
+      (set! run-dsp passthrough))
+   (run-dsp delta-time in1 in2 in3 in4 out1 out2 out3 out4)))
 
-;; Re-define this symbol using NREPL connection to modify the behaviour
-;; of the plugin.
-(define (run-dsp delta-time in1 in2 in3 in4 out1 out2 out3 out4)
+(define (passthrough delta-time in1 in2 in3 in4 out1 out2 out3 out4)
   (pointer-f32-set! out1 in1)
   (pointer-f32-set! out2 in2)
   (pointer-f32-set! out3 in3)
   (pointer-f32-set! out4 in4))
+
+;; Re-define this symbol using NREPL connection to modify the behaviour
+;; of the plugin.
+(define run-dsp passthrough)
 
 (define (start-nrepl)
   (thread-start!
