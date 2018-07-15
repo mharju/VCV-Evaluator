@@ -71,7 +71,7 @@
       *record-buffer-position*
       (store-value! *buffer* *record-buffer-position* in)))
 
-  (when (not (= *previous-clock* clock)) (tick!))
+  (when (and (not (= *previous-clock* 10.0)) (= clock 10.0)) (tick!))
 
   (set! *previous-clock* clock)
 
