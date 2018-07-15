@@ -2,7 +2,7 @@
 SLUG = ElasticOrange-Evaluator4x4
 
 # Must follow the format in the Versioning section of https://vcvrack.com/manual/PluginDevelopmentTutorial.html
-VERSION = 0.6.0dev
+VERSION = 0.6.2
 
 # FLAGS will be passed to both the C and C++ compiler
 FLAGS += -I/usr/local/Cellar/chicken/4.13.0/include/chicken
@@ -29,4 +29,3 @@ include $(RACK_DIR)/plugin.mk
 
 build/engine.scm.o: src/engine.scm
 	csc -C $(MAC_SDK_FLAGS) src/engine.scm -emit-external-prototypes-first -c -o build/engine.scm.o
-
